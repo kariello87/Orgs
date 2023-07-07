@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="text" type="style">
-
-    </item>
+    <!--    <style name="nome" parent="TextAppearance.AppCompat">-->
+    <!--        <item name="android:textColor">#00FF00</item>-->
+    <!--    </style>-->
 </resources>

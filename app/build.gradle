@@ -3,8 +3,13 @@ plugins {
 }
 
 android {
+
     namespace 'br.com.alura.orgs'
     compileSdk 33
+
+    buildFeatures {
+        viewBinding = true
+    }
 
     defaultConfig {
         applicationId "br.com.alura.orgs"
