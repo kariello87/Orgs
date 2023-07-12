@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.MainActivity">
+    tools:context=".ui.activity.ListaProdutosActivity">
 
     <!--    Agora que os layouts estão separados, aproveite para utilizar o match constraint (0dp)
      no atributo android:layout_width em ambos os layouts. Para que isso seja possível, é importante

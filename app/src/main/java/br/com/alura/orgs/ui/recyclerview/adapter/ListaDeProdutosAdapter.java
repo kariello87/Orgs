@@ -16,7 +16,7 @@ import br.com.alura.orgs.model.Produto;
 
 public class ListaDeProdutosAdapter extends RecyclerView.Adapter {
 
-    private final List<Produto> produtos;
+    private List<Produto> produtos;
     private final Context context;
 
 
@@ -45,6 +45,13 @@ public class ListaDeProdutosAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         return produtos.size();
+    }
+
+
+    public void atualiza(List<Produto> produtos) {
+        this.produtos = produtos;
+        notifyDataSetChanged(); //ATENÇÃO - NOTIFICA QUE OS DADOS FORAM MODIFICADOS. ADAPTER REFAZ TODOS OS PASSOS
+
     }
 }
 

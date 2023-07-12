@@ -20,8 +20,8 @@ public class FormularioProdutoActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_produto);
-
         binding = ActivityFormularioProdutoBinding.inflate(getLayoutInflater());
+
         binding.btSalvar.setOnClickListener(view -> {
             String nome = binding.editNome.getText().toString();
             String descricao = binding.editDescricao.getText().toString();
