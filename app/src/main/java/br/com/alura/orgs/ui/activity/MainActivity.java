@@ -20,14 +20,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        //jeito antigo de fazer
-        /*TextView viewNome = findViewById(R.id.nome);
-        viewNome.setText("Cesta de Frutas");*/
-
-        //JEITO NOVO DE FAZER
-
-
     }
 
     @Override
