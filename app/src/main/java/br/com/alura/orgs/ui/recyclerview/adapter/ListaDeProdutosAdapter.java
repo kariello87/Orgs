@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import br.com.alura.orgs.R;
-import br.com.alura.orgs.databinding.ProdutoItemBinding;
 import br.com.alura.orgs.model.Produto;
 
 public class ListaDeProdutosAdapter extends RecyclerView.Adapter {
@@ -51,7 +50,6 @@ public class ListaDeProdutosAdapter extends RecyclerView.Adapter {
 
 class NossoViewHolder extends RecyclerView.ViewHolder {
 
-    private ProdutoItemBinding produtoItemBinding;
 
     public NossoViewHolder(@NonNull View itemView) {
         super(itemView);
