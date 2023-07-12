@@ -3,6 +3,7 @@ package br.com.alura.orgs.ui.activity;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.math.BigDecimal;
@@ -22,29 +23,36 @@ public class FormularioProdutoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario_produto);
         binding = ActivityFormularioProdutoBinding.inflate(getLayoutInflater());
 
+        configuraBotaoSalvar();
+
+        setContentView(binding.getRoot());
+    }
+
+    private void configuraBotaoSalvar() {
         binding.btSalvar.setOnClickListener(view -> {
-            String nome = binding.editNome.getText().toString();
-            String descricao = binding.editDescricao.getText().toString();
-            String precoString = binding.editPreco.getText().toString();
-            BigDecimal preco;
-
-            if (precoString.isBlank()) {
-                preco = BigDecimal.ZERO;
-            } else {
-                preco = new BigDecimal(precoString);
-            }
-
-            Produto produto = new Produto(nome, descricao, preco);
-
+            Produto produto = criaProduto();
             Log.i("Produto", produto.toString());
-
             ProdutosDao.adiciona(produto);
             Log.i("ProdutoS", ProdutosDao.buscaTodos().toString());
             finish();
 
         });
+    }
 
-        setContentView(binding.getRoot());
+    @NonNull
+    private Produto criaProduto() {
+        String nome = binding.editNome.getText().toString();
+        String descricao = binding.editDescricao.getText().toString();
+        String precoString = binding.editPreco.getText().toString();
+        BigDecimal preco;
+
+        if (precoString.isBlank()) {
+            preco = BigDecimal.ZERO;
+        } else {
+            preco = new BigDecimal(precoString);
+        }
+
+        return new Produto(nome, descricao, preco);
     }
 
 
