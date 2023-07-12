@@ -11,8 +11,6 @@ import br.com.alura.orgs.databinding.ActivityListaProdutosBinding;
 import br.com.alura.orgs.ui.recyclerview.adapter.ListaDeProdutosAdapter;
 
 public class ListaProdutosActivity extends AppCompatActivity {
-
-
     private ActivityListaProdutosBinding binding;
     private ListaDeProdutosAdapter adapter;
 

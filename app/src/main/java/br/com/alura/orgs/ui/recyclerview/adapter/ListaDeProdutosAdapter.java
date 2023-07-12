@@ -57,7 +57,6 @@ public class ListaDeProdutosAdapter extends RecyclerView.Adapter {
 
 class NossoViewHolder extends RecyclerView.ViewHolder {
 
-
     public NossoViewHolder(@NonNull View itemView) {
         super(itemView);
     }
@@ -69,7 +68,5 @@ class NossoViewHolder extends RecyclerView.ViewHolder {
         descricao.setText(produto.getDescricao());
         TextView preco = itemView.findViewById(R.id.valor);
         preco.setText(produto.getPreco().toPlainString());
-
-
     }
 }
