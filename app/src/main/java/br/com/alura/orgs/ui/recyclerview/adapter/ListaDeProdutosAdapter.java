@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.alura.orgs.R;
@@ -22,7 +21,7 @@ public class ListaDeProdutosAdapter extends RecyclerView.Adapter {
     private final Context context;
 
 
-    public ListaDeProdutosAdapter(ArrayList<Produto> produtos, Context context) {
+    public ListaDeProdutosAdapter(List<Produto> produtos, Context context) {
         this.produtos = produtos;
         this.context = context;
     }

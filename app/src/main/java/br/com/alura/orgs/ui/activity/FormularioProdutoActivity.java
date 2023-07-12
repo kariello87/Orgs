@@ -2,13 +2,13 @@ package br.com.alura.orgs.ui.activity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.math.BigDecimal;
 
 import br.com.alura.orgs.R;
+import br.com.alura.orgs.dao.ProdutosDao;
 import br.com.alura.orgs.databinding.ActivityFormularioProdutoBinding;
 import br.com.alura.orgs.model.Produto;
 
@@ -37,7 +37,10 @@ public class FormularioProdutoActivity extends AppCompatActivity {
             Produto produto = new Produto(nome, descricao, preco);
 
             Log.i("Produto", produto.toString());
-            Toast.makeText(this, nome, Toast.LENGTH_SHORT).show();
+
+            ProdutosDao.adiciona(produto);
+            Log.i("ProdutoS", ProdutosDao.buscaTodos().toString());
+            finish();
 
         });
 
@@ -45,4 +48,10 @@ public class FormularioProdutoActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+    }
 }

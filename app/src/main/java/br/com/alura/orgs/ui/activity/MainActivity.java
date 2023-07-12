@@ -1,17 +1,13 @@
 package br.com.alura.orgs.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
 import br.com.alura.orgs.R;
+import br.com.alura.orgs.dao.ProdutosDao;
 import br.com.alura.orgs.databinding.ActivityMainBinding;
-import br.com.alura.orgs.model.Produto;
 import br.com.alura.orgs.ui.recyclerview.adapter.ListaDeProdutosAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,21 +28,26 @@ public class MainActivity extends AppCompatActivity {
         //JEITO NOVO DE FAZER
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
-        Produto p1 = new Produto("Maçã", "Gala", new BigDecimal("5.99"));
-        Produto p2 = new Produto("Manga", "Palmer", new BigDecimal("1.99"));
-        Produto p3 = new Produto("Uva", "Itália", new BigDecimal("8.99"));
-        ArrayList<Produto> produtos = new ArrayList<>(List.of(p1, p2, p3));
-
-        binding.recycleView.setAdapter(new ListaDeProdutosAdapter(produtos, this));
+        binding.recycleView.setAdapter(new ListaDeProdutosAdapter(ProdutosDao.buscaTodos(), this));
 //        binding.recycleView.setLayoutManager(new LinearLayoutManager(this)); COLOCADO NO CODIGO DE LAYOUT
-
 
         setContentView(binding.getRoot());
 
-        Toast.makeText(this, "Olá Mundo", Toast.LENGTH_SHORT).show();
+        binding.fab.setOnClickListener(view -> {
+            Intent intent = new Intent(this, FormularioProdutoActivity.class);
+            startActivity(intent);
+        });
+
+
     }
+
 
     @Override
     protected void onDestroy() {
