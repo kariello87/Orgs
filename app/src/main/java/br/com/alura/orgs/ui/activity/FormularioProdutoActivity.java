@@ -1,7 +1,6 @@
 package br.com.alura.orgs.ui.activity;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,9 +30,7 @@ public class FormularioProdutoActivity extends AppCompatActivity {
     private void configuraBotaoSalvar() {
         binding.btSalvar.setOnClickListener(view -> {
             Produto produto = criaProduto();
-            Log.i("Produto", produto.toString());
             ProdutosDao.adiciona(produto);
-            Log.i("ProdutoS", ProdutosDao.buscaTodos().toString());
             finish();
 
         });
