@@ -18,7 +18,9 @@ public class ListaProdutosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_produtos);
+
         binding = ActivityListaProdutosBinding.inflate(getLayoutInflater());
+        ProdutosDao.adicionaUmProdutoAutomaticamenteParaTeste();
         adapter = new ListaDeProdutosAdapter(ProdutosDao.buscaTodos(), this);
         configuraFAB();
         configuraRecyclerView();
