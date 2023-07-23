@@ -9,7 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import br.com.alura.orgs.R;
 import br.com.alura.orgs.model.Produto;
@@ -61,12 +64,19 @@ class NossoViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
     }
 
+    private static String formataValorEmMoedaNacional(BigDecimal valor) {
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(new Locale("pt", "br"));
+        String valorEmMoedaNacional = numberFormat.format(valor);
+        return valorEmMoedaNacional;
+    }
+
     public void vincula(Produto produto) {
         TextView nome = itemView.findViewById(R.id.nome);
         nome.setText(produto.getNome());
         TextView descricao = itemView.findViewById(R.id.descricao);
         descricao.setText(produto.getDescricao());
         TextView preco = itemView.findViewById(R.id.valor);
-        preco.setText(produto.getPreco().toPlainString());
+        String valorEmMoedaNacional = formataValorEmMoedaNacional(produto.getPreco());
+        preco.setText(valorEmMoedaNacional);
     }
 }
