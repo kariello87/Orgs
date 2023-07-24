@@ -34,7 +34,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/produto_nome"
+                android:id="@+id/edit_nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nome" />
@@ -51,7 +51,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout_nome">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/produto_descricao"
+                android:id="@+id/edit_descricao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Descrição" />
@@ -69,7 +69,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout_descricao">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/produto_preco"
+                android:id="@+id/edit_preco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Preço" />
