@@ -38,9 +38,9 @@ public class FormularioProdutoActivity extends AppCompatActivity {
 
     @NonNull
     private Produto criaProduto() {
-        String nome = binding.editNome.getText().toString();
-        String descricao = binding.editDescricao.getText().toString();
-        String precoString = binding.editPreco.getText().toString();
+        String nome = binding.textInputLayoutNome.getEditText().getText().toString();
+        String descricao = binding.textInputLayoutDescricao.getEditText().getText().toString();
+        String precoString = binding.textInputLayoutPreco.getEditText().getText().toString();
         BigDecimal preco;
 
         if (precoString.isBlank()) {

@@ -28,7 +28,8 @@
         android:layout_margin="16dp"
         android:clickable="true"
         android:focusable="true"
-        android:text="@string/extended_fab_content_desc"
+        android:text="@string/descricao_fab"
+        android:textAllCaps="true"
 
         app:icon="@drawable/ic_adicionar"
 
