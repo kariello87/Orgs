@@ -3,6 +3,7 @@ package br.com.alura.orgs.ui.activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.math.BigDecimal;
@@ -21,7 +22,14 @@ public class FormularioProdutoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_produto);
         binding = ActivityFormularioProdutoBinding.inflate(getLayoutInflater());
-
+        binding.formularioProdutoImageView.setOnClickListener(view -> {
+            new AlertDialog.Builder(this)
+                    .setView(R.layout.formulario_imagem)
+                    .setPositiveButton("Confirmar", (dialogInterface, i) -> {
+                    })
+                    .setNegativeButton("Cancelar", (dialogInterface, i) -> {
+                    }).show();
+        });
         configuraBotaoSalvar();
 
         setContentView(binding.getRoot());

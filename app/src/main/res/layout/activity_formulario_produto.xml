@@ -16,11 +16,11 @@
             android:id="@+id/formulario_produto_imageView"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/produto_1" />
+            android:background="@android:color/darker_gray"
+            app:srcCompat="@drawable/imagem_adicionar_foto" />
 
 
         <com.google.android.material.textfield.TextInputLayout
