@@ -27,7 +27,7 @@
             android:maxLines="1"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintStart_toEndOf="@id/formulario_produto_imageView"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@tools:sample/lorem/random" />
 
@@ -75,7 +75,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/formulario_produto_imageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerCrop"

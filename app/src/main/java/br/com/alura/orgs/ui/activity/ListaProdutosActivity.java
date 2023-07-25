@@ -3,6 +3,7 @@ package br.com.alura.orgs.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.alura.orgs.R;
@@ -24,6 +25,14 @@ public class ListaProdutosActivity extends AppCompatActivity {
         adapter = new ListaDeProdutosAdapter(ProdutosDao.buscaTodos(), this);
         configuraFAB();
         configuraRecyclerView();
+        new AlertDialog.Builder(this)
+                .setTitle("Teste título")
+                .setMessage("teste de mensage")
+                .setView(R.layout.formulario_imagem)
+                .setPositiveButton("Confirmar", (dialogInterface, i) -> {
+                })
+                .setNegativeButton("Cancelar", (dialogInterface, i) -> {
+                }).show();
 
     }
 
