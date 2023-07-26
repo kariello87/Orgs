@@ -4,10 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
@@ -21,6 +24,7 @@ public class ListaDeProdutosAdapter extends RecyclerView.Adapter {
 
     private List<Produto> produtos;
     private final Context context;
+
 
 
     public ListaDeProdutosAdapter(List<Produto> produtos, Context context) {
@@ -60,6 +64,7 @@ public class ListaDeProdutosAdapter extends RecyclerView.Adapter {
 
 class NossoViewHolder extends RecyclerView.ViewHolder {
 
+
     public NossoViewHolder(@NonNull View itemView) {
         super(itemView);
     }
@@ -78,5 +83,8 @@ class NossoViewHolder extends RecyclerView.ViewHolder {
         TextView preco = itemView.findViewById(R.id.valor);
         String valorEmMoedaNacional = formataValorEmMoedaNacional(produto.getPreco());
         preco.setText(valorEmMoedaNacional);
+        ImageView imagemProdutoItem = itemView.findViewById(R.id.produto_item_imageView);
+        Picasso.get().load("\"C:\\Users\\karie\\OneDrive\\Imagens\\laranjas.jpg\"").into(imagemProdutoItem);
+
     }
 }

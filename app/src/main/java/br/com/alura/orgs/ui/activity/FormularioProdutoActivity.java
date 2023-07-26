@@ -1,6 +1,8 @@
 package br.com.alura.orgs.ui.activity;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -22,14 +24,17 @@ public class FormularioProdutoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_produto);
         binding = ActivityFormularioProdutoBinding.inflate(getLayoutInflater());
-        binding.formularioProdutoImageView.setOnClickListener(view -> {
+        binding.produtoItemImageView.setOnClickListener(view -> {
             new AlertDialog.Builder(this)
                     .setView(R.layout.formulario_imagem)
-                    .setPositiveButton("Confirmar", (dialogInterface, i) -> {
-                    })
-                    .setNegativeButton("Cancelar", (dialogInterface, i) -> {
-                    }).show();
+                    .show();
+            Button btCarregar = findViewById(R.id.formulario_imagem_bt_carregar);
+            ImageView imageView = findViewById(R.id.formulario_imagem_imageView);
+            btCarregar.setOnClickListener(view1 -> {
+
+            });
         });
+
         configuraBotaoSalvar();
 
         setContentView(binding.getRoot());
