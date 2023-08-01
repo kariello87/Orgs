@@ -1,8 +1,6 @@
 package br.com.alura.orgs.ui.activity;
 
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -12,11 +10,13 @@ import java.math.BigDecimal;
 
 import br.com.alura.orgs.R;
 import br.com.alura.orgs.dao.ProdutosDao;
+import br.com.alura.orgs.databinding.ActivityFormularioImagemBinding;
 import br.com.alura.orgs.databinding.ActivityFormularioProdutoBinding;
 import br.com.alura.orgs.model.Produto;
 
 public class FormularioProdutoActivity extends AppCompatActivity {
     private ActivityFormularioProdutoBinding binding;
+    private ActivityFormularioImagemBinding formularioImagemBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +26,9 @@ public class FormularioProdutoActivity extends AppCompatActivity {
         binding = ActivityFormularioProdutoBinding.inflate(getLayoutInflater());
         binding.produtoItemImageView.setOnClickListener(view -> {
             new AlertDialog.Builder(this)
-                    .setView(R.layout.formulario_imagem)
+                    .setView(R.layout.activity_formulario_imagem)
                     .show();
-            Button botaoCarregar = findViewById(R.id.formulario_imagem_bt_carregar);
-            botaoCarregar.setOnClickListener(view1 -> Toast.makeText(this, "teste", Toast.LENGTH_SHORT).show());
+
 
         });
 
