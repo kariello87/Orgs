@@ -2,7 +2,7 @@ package br.com.alura.orgs.ui.activity;
 
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -28,12 +28,11 @@ public class FormularioProdutoActivity extends AppCompatActivity {
             new AlertDialog.Builder(this)
                     .setView(R.layout.formulario_imagem)
                     .show();
-            Button btCarregar = findViewById(R.id.formulario_imagem_bt_carregar);
-            ImageView imageView = findViewById(R.id.formulario_imagem_imageView);
-            btCarregar.setOnClickListener(view1 -> {
+            Button botaoCarregar = findViewById(R.id.formulario_imagem_bt_carregar);
+            botaoCarregar.setOnClickListener(view1 -> Toast.makeText(this, "teste", Toast.LENGTH_SHORT).show());
 
-            });
         });
+
 
         configuraBotaoSalvar();
 
