@@ -32,13 +32,13 @@ public class FormularioProdutoActivity extends AppCompatActivity {
             bindingImagemFormulario = ActivityFormularioImagemBinding.inflate(getLayoutInflater());
             bindingImagemFormulario.formularioImagemBtCarregar.setOnClickListener(view1 -> {
                 urlImagem = bindingImagemFormulario.url.getText().toString();
-                if (!urlImagem.isBlank()) {
+                if (urlImagem != null && !urlImagem.isEmpty()) {
                     Picasso.get().load(urlImagem).into(bindingImagemFormulario.formularioImagemImageView);
                 }
             });
             new AlertDialog.Builder(this)
                     .setView(bindingImagemFormulario.getRoot()).setPositiveButton("Confirmar", (dialogInterface, i) -> {
-                        if (!urlImagem.isBlank()) {
+                        if (urlImagem != null && !urlImagem.isEmpty()) {
                             Picasso.get().load(urlImagem).into(binding.produtoItemImageView);
                         }
 
