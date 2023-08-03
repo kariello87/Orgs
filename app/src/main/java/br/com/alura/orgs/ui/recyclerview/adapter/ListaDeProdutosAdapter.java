@@ -84,7 +84,7 @@ class NossoViewHolder extends RecyclerView.ViewHolder {
         String valorEmMoedaNacional = formataValorEmMoedaNacional(produto.getPreco());
         preco.setText(valorEmMoedaNacional);
         ImageView imagemProdutoItem = itemView.findViewById(R.id.produto_item_imageView);
-        Picasso.get().load("https://media.istockphoto.com/id/185284489/pt/foto/de-laranja.jpg?s=612x612&w=0&k=20&c=IPTZGtjI4kIj6yKPkdT0BwnwiDsmcmt0M_6Akd8rrUY=").into(imagemProdutoItem);
+        Picasso.get().load(produto.getUrlImagem()).into(imagemProdutoItem);
 
     }
 }

@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.squareup.picasso.Picasso;
+
 import java.math.BigDecimal;
 
 import br.com.alura.orgs.R;
@@ -16,7 +18,8 @@ import br.com.alura.orgs.model.Produto;
 
 public class FormularioProdutoActivity extends AppCompatActivity {
     private ActivityFormularioProdutoBinding binding;
-    private ActivityFormularioImagemBinding formularioImagemBinding;
+    private ActivityFormularioImagemBinding bindingImagemFormulario;
+    private String urlImagem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +27,25 @@ public class FormularioProdutoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_produto);
         binding = ActivityFormularioProdutoBinding.inflate(getLayoutInflater());
+
         binding.produtoItemImageView.setOnClickListener(view -> {
+            bindingImagemFormulario = ActivityFormularioImagemBinding.inflate(getLayoutInflater());
+            bindingImagemFormulario.formularioImagemBtCarregar.setOnClickListener(view1 -> {
+                urlImagem = bindingImagemFormulario.url.getText().toString();
+                if (!urlImagem.isBlank()) {
+                    Picasso.get().load(urlImagem).into(bindingImagemFormulario.formularioImagemImageView);
+                }
+            });
             new AlertDialog.Builder(this)
-                    .setView(R.layout.activity_formulario_imagem)
+                    .setView(bindingImagemFormulario.getRoot()).setPositiveButton("Confirmar", (dialogInterface, i) -> {
+                        if (!urlImagem.isBlank()) {
+                            Picasso.get().load(urlImagem).into(binding.produtoItemImageView);
+                        }
+
+                    }).setNegativeButton("Cancelar", (dialogInterface, i) -> {
+                        //volta sem fazer nada
+                    })
                     .show();
-
-
         });
 
 
@@ -59,8 +75,9 @@ public class FormularioProdutoActivity extends AppCompatActivity {
         } else {
             preco = new BigDecimal(precoString);
         }
+        Produto produto = new Produto(nome, descricao, preco, urlImagem);
 
-        return new Produto(nome, descricao, preco);
+        return produto;
     }
 
 

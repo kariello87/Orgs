@@ -11,7 +11,10 @@ public abstract class ProdutosDao {
     private static final List<Produto> produtos = new ArrayList<>();
 
     public static void adicionaUmProdutoAutomaticamenteParaTeste() {
-        produtos.add(new Produto("Salada de frutas", "Laranja, Maçã, Mamão", new BigDecimal("19.83")));
+        Produto primeiroProduto = new Produto("Salada de frutas", "Laranja, Maçã, Mamão", new BigDecimal("19.83"));
+        primeiroProduto.setUrlImagem("https://media.istockphoto.com/id/185284489/pt/foto/de-laranja.jpg?s=612x612&w=0&k=20&c=IPTZGtjI4kIj6yKPkdT0BwnwiDsmcmt0M_6Akd8rrUY=");
+        produtos.add(primeiroProduto);
+
     }
 
     public static void adiciona(Produto produto) {
