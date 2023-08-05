@@ -10,9 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
-
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.List;
@@ -20,6 +17,7 @@ import java.util.Locale;
 
 import br.com.alura.orgs.R;
 import br.com.alura.orgs.model.Produto;
+import br.com.alura.orgs.util.ImageViewUtil;
 
 public class ListaDeProdutosAdapter extends RecyclerView.Adapter {
 
@@ -93,8 +91,8 @@ class NossoViewHolder extends RecyclerView.ViewHolder {
             imagemProdutoItem.setVisibility(View.GONE);
         }
 
-
-        Picasso.get().load(produto.getUrlImagem()).into(imagemProdutoItem, new Callback() {
+        ImageViewUtil.tentaCarregarImagem(produto.getUrlImagem(), imagemProdutoItem);
+        /*Picasso.get().load(produto.getUrlImagem()).placeholder(R.drawable.placeholder_carregando).into(imagemProdutoItem, new Callback() {
             @Override
             public void onSuccess() {
             }
@@ -105,7 +103,10 @@ class NossoViewHolder extends RecyclerView.ViewHolder {
                 Picasso.get().load(R.drawable.erro).into(imagemProdutoItem);
 
             }
-        });
+        });*/
 
     }
+
+
 }
+

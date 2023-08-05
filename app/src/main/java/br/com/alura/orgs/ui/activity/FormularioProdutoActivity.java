@@ -6,8 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.squareup.picasso.Picasso;
-
 import java.math.BigDecimal;
 
 import br.com.alura.orgs.R;
@@ -15,6 +13,7 @@ import br.com.alura.orgs.dao.ProdutosDao;
 import br.com.alura.orgs.databinding.ActivityFormularioImagemBinding;
 import br.com.alura.orgs.databinding.ActivityFormularioProdutoBinding;
 import br.com.alura.orgs.model.Produto;
+import br.com.alura.orgs.util.ImageViewUtil;
 
 public class FormularioProdutoActivity extends AppCompatActivity {
     private ActivityFormularioProdutoBinding binding;
@@ -32,14 +31,14 @@ public class FormularioProdutoActivity extends AppCompatActivity {
             bindingImagemFormulario = ActivityFormularioImagemBinding.inflate(getLayoutInflater());
             bindingImagemFormulario.formularioImagemBtCarregar.setOnClickListener(view1 -> {
                 urlImagem = bindingImagemFormulario.url.getText().toString();
-                if (urlImagem != null && !urlImagem.isEmpty()) {
-                    Picasso.get().load(urlImagem).into(bindingImagemFormulario.formularioImagemImageView);
+                if (!urlImagem.isBlank()) {
+                    ImageViewUtil.tentaCarregarImagem(urlImagem, bindingImagemFormulario.formularioImagemImageView);
                 }
             });
             new AlertDialog.Builder(this)
                     .setView(bindingImagemFormulario.getRoot()).setPositiveButton("Confirmar", (dialogInterface, i) -> {
-                        if (urlImagem != null && !urlImagem.isEmpty()) {
-                            Picasso.get().load(urlImagem).into(binding.produtoItemImageView);
+                        if (!urlImagem.isBlank()) {
+                            ImageViewUtil.tentaCarregarImagem(urlImagem, binding.produtoItemImageView);
                         }
 
                     }).setNegativeButton("Cancelar", (dialogInterface, i) -> {
@@ -53,6 +52,7 @@ public class FormularioProdutoActivity extends AppCompatActivity {
 
         setContentView(binding.getRoot());
     }
+
 
     private void configuraBotaoSalvar() {
         binding.btSalvar.setOnClickListener(view -> {
@@ -75,7 +75,13 @@ public class FormularioProdutoActivity extends AppCompatActivity {
         } else {
             preco = new BigDecimal(precoString);
         }
-        Produto produto = new Produto(nome, descricao, preco, urlImagem);
+
+        Produto produto;
+        if (urlImagem.isBlank()) {
+            produto = new Produto(nome, descricao, preco);
+        } else {
+            produto = new Produto(nome, descricao, preco, urlImagem);
+        }
 
         return produto;
     }

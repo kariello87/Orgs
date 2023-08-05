@@ -49,6 +49,7 @@ public class Produto {
                 "nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", preco=" + preco +
+                ", urlImagem='" + urlImagem + '\'' +
                 '}';
     }
 }
