@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.math.BigDecimal;
@@ -83,7 +84,28 @@ class NossoViewHolder extends RecyclerView.ViewHolder {
         String valorEmMoedaNacional = formataValorEmMoedaNacional(produto.getPreco());
         preco.setText(valorEmMoedaNacional);
         ImageView imagemProdutoItem = itemView.findViewById(R.id.produto_item_imageView);
-        Picasso.get().load(produto.getUrlImagem()).into(imagemProdutoItem);
+
+        //Caso não haja imagem alguma carregada, ele some com a ImageView
+
+        if (produto.getUrlImagem() != null) {
+            imagemProdutoItem.setVisibility(View.VISIBLE);
+        } else {
+            imagemProdutoItem.setVisibility(View.GONE);
+        }
+
+
+        Picasso.get().load(produto.getUrlImagem()).into(imagemProdutoItem, new Callback() {
+            @Override
+            public void onSuccess() {
+            }
+
+            // Caso o Picasso não consigo carregar a imagem do link, ele exibe essa imagem padrão
+            @Override
+            public void onError(Exception e) {
+                Picasso.get().load(R.drawable.erro).into(imagemProdutoItem);
+
+            }
+        });
 
     }
 }
