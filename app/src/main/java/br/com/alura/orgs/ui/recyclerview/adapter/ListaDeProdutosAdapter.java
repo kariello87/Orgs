@@ -22,9 +22,8 @@ import br.com.alura.orgs.model.Produto;
 
 public class ListaDeProdutosAdapter extends RecyclerView.Adapter {
 
-    private List<Produto> produtos;
     private final Context context;
-
+    private List<Produto> produtos;
 
 
     public ListaDeProdutosAdapter(List<Produto> produtos, Context context) {
