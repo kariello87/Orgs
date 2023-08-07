@@ -27,6 +27,7 @@ public class FormularioProdutoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario_produto);
         binding = ActivityFormularioProdutoBinding.inflate(getLayoutInflater());
 
+
         binding.produtoItemImageView.setOnClickListener(view -> {
             bindingImagemFormulario = ActivityFormularioImagemBinding.inflate(getLayoutInflater());
             bindingImagemFormulario.formularioImagemBtCarregar.setOnClickListener(view1 -> {
