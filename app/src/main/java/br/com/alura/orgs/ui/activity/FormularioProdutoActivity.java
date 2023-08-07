@@ -31,13 +31,13 @@ public class FormularioProdutoActivity extends AppCompatActivity {
             bindingImagemFormulario = ActivityFormularioImagemBinding.inflate(getLayoutInflater());
             bindingImagemFormulario.formularioImagemBtCarregar.setOnClickListener(view1 -> {
                 urlImagem = bindingImagemFormulario.url.getText().toString();
-                if (!urlImagem.isBlank()) {
+                if (urlImagem != null && !urlImagem.isBlank()) {
                     ImageViewUtil.tentaCarregarImagem(urlImagem, bindingImagemFormulario.formularioImagemImageView);
                 }
             });
             new AlertDialog.Builder(this)
                     .setView(bindingImagemFormulario.getRoot()).setPositiveButton("Confirmar", (dialogInterface, i) -> {
-                        if (!urlImagem.isBlank()) {
+                        if (urlImagem != null && !urlImagem.isBlank()) {
                             ImageViewUtil.tentaCarregarImagem(urlImagem, binding.produtoItemImageView);
                         }
 
@@ -77,7 +77,7 @@ public class FormularioProdutoActivity extends AppCompatActivity {
         }
 
         Produto produto;
-        if (urlImagem.isBlank()) {
+        if (urlImagem == null || urlImagem.isBlank()) {
             produto = new Produto(nome, descricao, preco);
         } else {
             produto = new Produto(nome, descricao, preco, urlImagem);
