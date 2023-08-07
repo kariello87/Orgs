@@ -13,6 +13,7 @@ import br.com.alura.orgs.dao.ProdutosDao;
 import br.com.alura.orgs.databinding.ActivityFormularioImagemBinding;
 import br.com.alura.orgs.databinding.ActivityFormularioProdutoBinding;
 import br.com.alura.orgs.model.Produto;
+import br.com.alura.orgs.ui.dialog.FormularioImagemDialog;
 import br.com.alura.orgs.util.ImageViewUtil;
 
 public class FormularioProdutoActivity extends AppCompatActivity {
@@ -29,7 +30,8 @@ public class FormularioProdutoActivity extends AppCompatActivity {
 
 
         binding.produtoItemImageView.setOnClickListener(view -> {
-
+            FormularioImagemDialog formularioImagemDialog = new FormularioImagemDialog(this);
+            formularioImagemDialog.mostra();
         });
 
 
