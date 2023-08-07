@@ -29,23 +29,7 @@ public class FormularioProdutoActivity extends AppCompatActivity {
 
 
         binding.produtoItemImageView.setOnClickListener(view -> {
-            bindingImagemFormulario = ActivityFormularioImagemBinding.inflate(getLayoutInflater());
-            bindingImagemFormulario.formularioImagemBtCarregar.setOnClickListener(view1 -> {
-                urlImagem = bindingImagemFormulario.url.getText().toString();
-                if (urlImagem != null && !urlImagem.isBlank()) {
-                    ImageViewUtil.tentaCarregarImagem(urlImagem, bindingImagemFormulario.formularioImagemImageView);
-                }
-            });
-            new AlertDialog.Builder(this)
-                    .setView(bindingImagemFormulario.getRoot()).setPositiveButton("Confirmar", (dialogInterface, i) -> {
-                        if (urlImagem != null && !urlImagem.isBlank()) {
-                            ImageViewUtil.tentaCarregarImagem(urlImagem, binding.produtoItemImageView);
-                        }
 
-                    }).setNegativeButton("Cancelar", (dialogInterface, i) -> {
-                        //volta sem fazer nada
-                    })
-                    .show();
         });
 
 
