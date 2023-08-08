@@ -10,9 +10,9 @@ import br.com.alura.orgs.util.ImageViewUtil;
 
 public class FormularioImagemDialog {
 
+    private final Context context;
     private ActivityFormularioImagemBinding binding;
     private String urlImagem;
-    private final Context context;
 
     public FormularioImagemDialog(Context context) {
         this.context = context;
