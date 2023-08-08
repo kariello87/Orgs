@@ -11,8 +11,9 @@ import br.com.alura.orgs.util.ImageViewUtil;
 
 public class FormularioImagemDialog {
 
-    private ActivityFormularioProdutoBinding binding;
-    private ActivityFormularioImagemBinding bindingImagemFormulario;
+    private ActivityFormularioImagemBinding binding;
+
+    private ActivityFormularioProdutoBinding activityFormularioProdutoBinding;
     private String urlImagem;
     private Context context;
 
@@ -20,24 +21,33 @@ public class FormularioImagemDialog {
         this.context = context;
     }
 
-    public void mostra() {
+    public void mostra(String endereco, OnImageURLSelectedListener listener) {
 
-        bindingImagemFormulario = ActivityFormularioImagemBinding.inflate(LayoutInflater.from(context));
-        bindingImagemFormulario.formularioImagemBtCarregar.setOnClickListener(view1 -> {
-            urlImagem = bindingImagemFormulario.url.getText().toString();
+        binding = ActivityFormularioImagemBinding.inflate(LayoutInflater.from(context));
+        activityFormularioProdutoBinding = ActivityFormularioProdutoBinding.inflate(LayoutInflater.from(context));
+        binding.formularioImagemBtCarregar.setOnClickListener(view1 -> {
+            urlImagem = binding.url.getText().toString();
             if (urlImagem != null && !urlImagem.isBlank()) {
-                ImageViewUtil.tentaCarregarImagem(urlImagem, bindingImagemFormulario.formularioImagemImageView);
+                ImageViewUtil.tentaCarregarImagem(urlImagem, binding.formularioImagemImageView);
             }
         });
+
         new AlertDialog.Builder(context)
-                .setView(bindingImagemFormulario.getRoot()).setPositiveButton("Confirmar", (dialogInterface, i) -> {
+                .setView(binding.getRoot()).setPositiveButton("Confirmar", (dialogInterface, i) -> {
                     if (urlImagem != null && !urlImagem.isBlank()) {
-                        ImageViewUtil.tentaCarregarImagem(urlImagem, binding.produtoItemImageView);
+                        ImageViewUtil.tentaCarregarImagem(urlImagem, activityFormularioProdutoBinding.produtoItemImageView);
+                        if (listener != null) {
+                            listener.onImageURLSelected(urlImagem);
+                        }
                     }
 
                 }).setNegativeButton("Cancelar", (dialogInterface, i) -> {
                     //volta sem fazer nada
                 })
                 .show();
+    }
+
+    public interface OnImageURLSelectedListener {
+        void onImageURLSelected(String imageUrl);
     }
 }

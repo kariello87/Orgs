@@ -1,9 +1,10 @@
 package br.com.alura.orgs.ui.activity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.math.BigDecimal;
@@ -31,7 +32,14 @@ public class FormularioProdutoActivity extends AppCompatActivity {
 
         binding.produtoItemImageView.setOnClickListener(view -> {
             FormularioImagemDialog formularioImagemDialog = new FormularioImagemDialog(this);
-            formularioImagemDialog.mostra();
+            formularioImagemDialog.mostra(urlImagem, new FormularioImagemDialog.OnImageURLSelectedListener() {
+                @Override
+                public void onImageURLSelected(String imageUrl) {
+                    urlImagem = imageUrl;
+                    ImageViewUtil.tentaCarregarImagem(urlImagem,binding.produtoItemImageView);
+                    Log.i("TAG3", "onImageURLSelected: " + urlImagem);
+                }
+            });
         });
 
 
