@@ -2,7 +2,6 @@ package br.com.alura.orgs.ui.activity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +18,7 @@ import br.com.alura.orgs.util.ImageViewUtil;
 
 public class FormularioProdutoActivity extends AppCompatActivity {
     private ActivityFormularioProdutoBinding binding;
-    private ActivityFormularioImagemBinding bindingImagemFormulario;
-    private String urlImagem;
+    private String urlImagem = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +27,12 @@ public class FormularioProdutoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario_produto);
         binding = ActivityFormularioProdutoBinding.inflate(getLayoutInflater());
 
-
         binding.produtoItemImageView.setOnClickListener(view -> {
             FormularioImagemDialog formularioImagemDialog = new FormularioImagemDialog(this);
-            formularioImagemDialog.mostra(urlImagem, new FormularioImagemDialog.OnImageURLSelectedListener() {
-                @Override
-                public void onImageURLSelected(String imageUrl) {
-                    urlImagem = imageUrl;
-                    ImageViewUtil.tentaCarregarImagem(urlImagem,binding.produtoItemImageView);
-                    Log.i("TAG3", "onImageURLSelected: " + urlImagem);
-                }
+            formularioImagemDialog.mostra(imageUrl -> {
+                urlImagem = imageUrl;
+                ImageViewUtil.tentaCarregarImagem(urlImagem, binding.produtoItemImageView);
+                Log.i("TAG3", "onImageURLSelected: " + urlImagem);
             });
         });
 

@@ -21,7 +21,7 @@ public class FormularioImagemDialog {
         this.context = context;
     }
 
-    public void mostra(String endereco, OnImageURLSelectedListener listener) {
+    public void mostra(OnImageURLSelectedListener listener) {
 
         binding = ActivityFormularioImagemBinding.inflate(LayoutInflater.from(context));
         activityFormularioProdutoBinding = ActivityFormularioProdutoBinding.inflate(LayoutInflater.from(context));
