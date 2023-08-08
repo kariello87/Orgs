@@ -21,9 +21,10 @@ public class FormularioImagemDialog {
     public void mostra(InterfaceImagem enderecoDaImagem) {
 
         binding = ActivityFormularioImagemBinding.inflate(LayoutInflater.from(context));
+
         binding.formularioImagemBtCarregar.setOnClickListener(view1 -> {
             urlImagem = binding.url.getText().toString();
-            if (urlImagem != null && !urlImagem.isBlank()) {
+            if (!urlImagem.isBlank()) {
                 ImageViewUtil.tentaCarregarImagem(urlImagem, binding.formularioImagemImageView);
             }
         });

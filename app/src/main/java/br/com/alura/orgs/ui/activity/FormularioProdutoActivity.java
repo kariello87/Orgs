@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 
 import br.com.alura.orgs.R;
 import br.com.alura.orgs.dao.ProdutosDao;
-import br.com.alura.orgs.databinding.ActivityFormularioImagemBinding;
 import br.com.alura.orgs.databinding.ActivityFormularioProdutoBinding;
 import br.com.alura.orgs.model.Produto;
 import br.com.alura.orgs.ui.dialog.FormularioImagemDialog;
