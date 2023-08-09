@@ -28,7 +28,7 @@ public class FormularioProdutoActivity extends AppCompatActivity {
 
         binding.produtoItemImageView.setOnClickListener(view -> {
             FormularioImagemDialog formularioImagemDialog = new FormularioImagemDialog(this);
-            formularioImagemDialog.mostra(imageUrl -> {
+            formularioImagemDialog.mostra(null, imageUrl -> {
                 urlImagem = imageUrl;
                 ImageViewUtil.tentaCarregarImagem(urlImagem, binding.produtoItemImageView);
                 Log.i("TAG3", "onImageURLSelected: " + urlImagem);
