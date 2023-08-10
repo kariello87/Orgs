@@ -18,12 +18,12 @@ public class FormularioImagemDialog {
         this.context = context;
     }
 
-    public void mostra(String urlPadrao,InterfaceImagem enderecoDaImagem) {
+    public void mostra(String urlPadrao, InterfaceImagem enderecoDaImagem) {
 
         binding = ActivityFormularioImagemBinding.inflate(LayoutInflater.from(context));
 
         if (urlPadrao != null) {
-            ImageViewUtil.tentaCarregarImagem(urlPadrao,binding.formularioImagemImageView);
+            ImageViewUtil.tentaCarregarImagem(urlPadrao, binding.formularioImagemImageView);
             binding.url.setText(urlPadrao);
         }
 
