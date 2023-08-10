@@ -17,7 +17,7 @@ import br.com.alura.orgs.util.ImageViewUtil;
 
 public class FormularioProdutoActivity extends AppCompatActivity {
     private ActivityFormularioProdutoBinding binding;
-    private String urlImagem = "";
+    private String urlImagem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class FormularioProdutoActivity extends AppCompatActivity {
 
         binding.produtoItemImageView.setOnClickListener(view -> {
             FormularioImagemDialog formularioImagemDialog = new FormularioImagemDialog(this);
-            formularioImagemDialog.mostra(null, imageUrl -> {
+            formularioImagemDialog.mostra(urlImagem, imageUrl -> {
                 urlImagem = imageUrl;
                 ImageViewUtil.tentaCarregarImagem(urlImagem, binding.produtoItemImageView);
                 Log.i("TAG3", "onImageURLSelected: " + urlImagem);

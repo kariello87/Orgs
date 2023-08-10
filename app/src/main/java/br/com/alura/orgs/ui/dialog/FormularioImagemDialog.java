@@ -24,6 +24,7 @@ public class FormularioImagemDialog {
 
         if (urlPadrao != null) {
             ImageViewUtil.tentaCarregarImagem(urlPadrao,binding.formularioImagemImageView);
+            binding.url.setText(urlPadrao);
         }
 
         binding.formularioImagemBtCarregar.setOnClickListener(view1 -> {
