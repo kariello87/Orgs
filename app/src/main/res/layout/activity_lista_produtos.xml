@@ -10,16 +10,16 @@
      no atributo android:layout_width em ambos os layouts. Para que isso seja possível, é importante
       que as constraints de eixo X (start e end) estejam configuradas.-->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/produto_item" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/produto_item" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab"
@@ -30,8 +30,7 @@
         android:focusable="true"
         android:text="@string/descricao_fab"
         android:textAllCaps="true"
-
-
+        android:textStyle="bold"
         app:backgroundTint="@color/color_secundary"
         app:icon="@drawable/ic_adicionar"
         app:layout_constraintBottom_toBottomOf="parent"

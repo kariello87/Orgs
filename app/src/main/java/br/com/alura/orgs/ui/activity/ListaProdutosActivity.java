@@ -23,8 +23,6 @@ public class ListaProdutosActivity extends AppCompatActivity {
         adapter = new ListaDeProdutosAdapter(ProdutosDao.buscaTodos(), this);
         configuraFAB();
         configuraRecyclerView();
-
-
     }
 
 

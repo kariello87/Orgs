@@ -4,10 +4,11 @@
         <!--<item name="android:windowActionBar">true</item>
         <item name="android:windowNoTitle">false</item>-->
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/color_primary</item>
-         <item name="colorPrimaryVariant">@color/color_primary</item>
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary</item>
         <item name="colorSecondary">@color/color_secundary</item>
         <item name="colorSecondaryVariant">@color/color_secundary</item>
+        <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
     <style name="Theme.Orgs" parent="Base.Theme.Orgs" />
