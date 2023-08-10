@@ -31,7 +31,6 @@
         android:text="@string/descricao_fab"
         android:textAllCaps="true"
 
-        android:textColorHighlight="@color/color_secundary"
 
         app:backgroundTint="@color/color_secundary"
         app:icon="@drawable/ic_adicionar"
