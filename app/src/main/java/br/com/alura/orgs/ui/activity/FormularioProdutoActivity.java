@@ -24,6 +24,7 @@ public class FormularioProdutoActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_produto);
+        setTitle("Cadastrar produto");
         binding = ActivityFormularioProdutoBinding.inflate(getLayoutInflater());
 
         binding.produtoItemImageView.setOnClickListener(view -> {
