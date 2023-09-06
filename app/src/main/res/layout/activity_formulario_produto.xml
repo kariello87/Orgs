@@ -37,7 +37,7 @@
                 android:id="@+id/edit_nome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nome"
+                android:hint="@string/nome"
                 android:inputType="textCapWords" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -55,7 +55,7 @@
                 android:id="@+id/edit_descricao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Descrição"
+                android:hint="@string/descricao"
                 android:inputType="textCapSentences" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -74,7 +74,7 @@
                 android:id="@+id/edit_preco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Preço"
+                android:hint="@string/preco"
                 android:inputType="numberDecimal" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -85,6 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/salvar"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
