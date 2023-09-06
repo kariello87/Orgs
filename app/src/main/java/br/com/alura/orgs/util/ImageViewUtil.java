@@ -24,4 +24,9 @@ public abstract class ImageViewUtil {
         });
 
     }
+
+    public static void recebeUrl(String urlImagem) {
+
+
+    }
 }

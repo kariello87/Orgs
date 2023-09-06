@@ -92,18 +92,7 @@ class NossoViewHolder extends RecyclerView.ViewHolder {
         }
 
         ImageViewUtil.tentaCarregarImagem(produto.getUrlImagem(), imagemProdutoItem);
-        /*Picasso.get().load(produto.getUrlImagem()).placeholder(R.drawable.placeholder_carregando).into(imagemProdutoItem, new Callback() {
-            @Override
-            public void onSuccess() {
-            }
 
-            // Caso o Picasso não consigo carregar a imagem do link, ele exibe essa imagem padrão
-            @Override
-            public void onError(Exception e) {
-                Picasso.get().load(R.drawable.erro).into(imagemProdutoItem);
-
-            }
-        });*/
 
     }
 
